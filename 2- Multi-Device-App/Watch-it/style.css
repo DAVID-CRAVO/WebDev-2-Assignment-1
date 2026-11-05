@@ -1,0 +1,260 @@
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Teko:wght@400;500;600&display=swap');
+
+/* GENERAL STYLING */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #070410;
+    color: #070410;
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, button {
+    font-family: 'Teko', sans-serif;
+}
+
+h1, h2, p {
+    margin-top: 0;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px;
+    background-color: #231651;
+    color: #ffffff;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    line-height: 1;
+}
+
+/* NAVIGATION */
+nav {
+    display: none;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* BUTTONS */
+button {
+    font-family: 'Teko', sans-serif;
+    font-size: 2em;
+    padding: 16px;
+    border: none;
+    border-radius: 16px;
+    background-color: #4dccbd;
+    color: #070410;
+    cursor: pointer;
+    line-height: 1;
+}
+
+button:hover {
+    background-color: #eef36a;
+}
+
+/* KEYBOARD ACCESSIBILITY */
+button:focus-visible,
+nav a:focus-visible {
+    outline: 3px solid #eef36a;
+    outline-offset: 3px;
+}
+
+header button:focus-visible {
+    outline-color: #ffffff;
+}
+
+/* SEARCH BUTTON */
+header button {
+    background-color: #eef36a;
+    color: #070410;
+}
+
+header button:hover {
+    background-color: #4dccbd;
+}
+
+/* MAIN CONTENT */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* MOVIE CARDS */
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    min-width: 0;
+    font-size: 1.5em;
+
+    /* Smooth animation */
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.movie-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(77, 204, 189, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+
+/* MOVIE IMAGES */
+.movie-card img {
+    display: block;
+    width: 100%;
+    height: 350px;
+}
+
+/* MOVIE INFORMATION */
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 16px;
+    padding: 16px;
+}
+
+.movie-info h2 {
+    font-size: 1em;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.movie-info p {
+    font-size: 1em;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* WATCH NOW BUTTONS */
+.movie-info button {
+    align-self: stretch;
+    margin-top: auto;
+    font-size: 2rem;
+    background-color: #4dccbd;
+    color: #070410;
+}
+
+.movie-info button:hover {
+    background-color: #eef36a;
+}
+
+.movie-card button:hover {
+    background-color: #eef36a;
+}
+
+
+/* TABLET LAYOUT */
+@media (min-width: 720px) {
+
+    /* Header */
+    header h1 {
+        font-size: 3em;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+    }
+
+    /* Two-column layout */
+    main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px;
+        padding: 32px;
+    }
+
+    .movie-card img {
+        height: 300px;
+    }
+}
+
+/* DESKTOP LAYOUT */
+@media (min-width: 1024px) {
+
+    /* Header navigation */
+    nav {
+        gap: 48px;
+    }
+
+    /* Main container */
+    main {
+        gap: 48px;
+        padding: 48px;
+    }
+
+    /* Featured first movie */
+    .movie-card:first-child {
+        grid-column: 1 / -1;
+    }
+
+    /* Featured movie banner */
+    .movie-card:first-child img {
+    width: 100%;
+    height: 77%;
+    
+}
+    }
+
+    /* Featured movie information */
+    .movie-card:first-child .movie-info {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .movie-card:first-child h2 {
+        grid-column: 1 / -1;
+    }
+
+    .movie-card:first-child button {
+        margin-top: 0;
+    }
+
+    /* Last three horizontal movie cards */
+    .horizontal-card {
+        grid-column: 1 / -1;
+        flex-direction: row;
+    }
+
+    /* Image on the left */
+    .horizontal-card img {
+        width: 50%;
+        height: 457px;
+    }
+
+    /* Movie information on the right */
+    .horizontal-card .movie-info {
+        flex: 1;
+    }
+
